@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+//css files
+import "./App.css";
+import "./index.css";
+import Axios from "axios";
+import React from "react";
 
-function App() {
+function Signup() {
+  const getUser = () => {
+    Axios.get("http://127.0.0.1:8000/user").then((res) => {
+      console.log(res);
+    });
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section>
+      <form className="Input">
+        <input
+          type="email"
+          className="form-control"
+          placeholder="Email"
+        ></input>
+
+        <input
+          type="password"
+          className="form-control"
+          placeholder="Password"
+        ></input>
+        <button onClick={getUser} className="btn btn-primary">
+          Submit
+        </button>
+      </form>
+    </section>
   );
 }
 
-export default App;
+// const Input = () => {
+//   return (
+
+//   );
+// };
+
+export default Signup;
