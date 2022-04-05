@@ -11,7 +11,7 @@ body {
   margin-top: 100px;
 }
 .Input {
-  box-shadow: 0px 10px 10px 5px lightblue;
+  box-shadow: 0px 10px 10px 5px rgb(75, 77, 78);
   display: flex;
   margin: 2px 2px 2px;
   flex-direction: column;
@@ -21,4 +21,20 @@ body {
   border: 0.5px solid black;
   padding: 70px 30px;
   text-align: center;
+}
+
+@media screen and (min-width: 756px) {
+  .Input {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .Input {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
 }
