@@ -3,31 +3,35 @@ import "./App.css";
 import "./index.css";
 //import axios from "axios";
 import React, { useState } from "react";
-import api from "./api";
+//import api from "./api";
 
 // const api = axios.create({
 //   baseURL: process.env.REACT_APP_BASE_URL || "http://localhost:8000/",
 // });
 
 function Signup() {
-  const [firstName, setfirstName] = useState("");
-  const [lastName, setlastName] = useState("");
-  const [userName, setuserName] = useState("");
+  const [firstname, setfirstName] = useState("");
+  const [lastname, setlastName] = useState("");
+  const [username, setuserName] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
 
   async function postUser(e) {
     e.preventDefault();
     try {
-      console.log("aa");
-      await api.post(`/user`, {
-        firstName: firstName,
-        lastName: lastName,
-        userName: userName,
+      const userSignup = {
+        first_name: firstname,
+        last_name: lastname,
+        username: username,
         email: email,
         password: password,
+      };
+
+      await fetch(`http://127.0.0.1:8000/user`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userSignup),
       });
-      //console.log(firstName, lastName, userName, email, password);
     } catch (err) {
       console.log(err);
     }
@@ -40,21 +44,21 @@ function Signup() {
           type="text"
           className="form-control"
           placeholder="First_Name"
-          value={firstName}
+          value={firstname}
           onChange={(e) => setfirstName(e.target.value)}
         ></input>
         <input
           type="text"
           className="form-control"
           placeholder="Last_Name"
-          value={lastName}
+          value={lastname}
           onChange={(e) => setlastName(e.target.value)}
         ></input>
         <input
           type="text"
           className="form-control"
           placeholder="Username"
-          value={userName}
+          value={username}
           onChange={(e) => setuserName(e.target.value)}
         ></input>
         <input
