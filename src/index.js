@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
+import Signup from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 const container = document.getElementById("root");
@@ -10,7 +10,7 @@ const container = document.getElementById("root");
 const root = ReactDOM.createRoot(container);
 
 // Initial render
-root.render(<App />);
+root.render(<Signup />);
 
 // ReactDOM.render(
 //   <React.StrictMode>
